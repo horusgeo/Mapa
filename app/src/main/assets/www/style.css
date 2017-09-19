@@ -1,0 +1,15 @@
+p{
+	color: #FF0000;
+	font-size: 20px;
+}
+
+body{
+	background-color: #AACCBB;
+}
+
+#mapDiv{
+	position: absolute;
+	top:0; 
+	bottom:0; 
+	width:100%;	
+}
