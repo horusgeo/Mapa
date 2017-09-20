@@ -1,6 +1,7 @@
 package br.com.horusgeo.mapa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -20,6 +21,8 @@ import android.widget.Button;
 public class MapaActivity extends AppCompatActivity {
     WebView webview;
     Button btnAcMapa;
+    FloatingActionButton floatingReturn;
+    FloatingActionButton floatingLocation;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -55,6 +58,23 @@ public class MapaActivity extends AppCompatActivity {
         });
 
         webview.addJavascriptInterface(new WebAppInterface(this), "Android");
+
+        floatingReturn = (FloatingActionButton)findViewById(R.id.floatingReturn);
+
+        floatingReturn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent(MapaActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        floatingLocation = (FloatingActionButton)findViewById(R.id.floatingLocation);
+        floatingLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                webview.loadUrl("javascript:findLocation()");
+            }
+        });
     }
 
     public void populateMap(){

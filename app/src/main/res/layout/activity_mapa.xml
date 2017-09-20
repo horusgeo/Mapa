@@ -11,6 +11,37 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp" >
+
+
+    </WebView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_anchor="@+id/webview"
+        app:layout_anchorGravity="bottom|left"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:layout_anchor="@+id/webview"
+        app:layout_anchorGravity="top|right"
+        app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>
