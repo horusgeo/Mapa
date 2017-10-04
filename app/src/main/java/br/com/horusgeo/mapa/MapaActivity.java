@@ -78,7 +78,9 @@ public class MapaActivity extends AppCompatActivity {
     }
 
     public void populateMap(){
-        webview.loadUrl("javascript:loadImg('/storage/extSdCard/www')");
+        //Cada aparelho possui um caminho diferente de armazenamento SdCard
+        webview.loadUrl("javascript:loadImg('/storage/E84C-FF83/www')");
+        //webview.loadUrl("javascript:loadImg('/storage/extSdCard/www')");
     }
 }
 
