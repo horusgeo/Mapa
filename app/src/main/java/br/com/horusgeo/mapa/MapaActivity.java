@@ -28,7 +28,6 @@ import java.util.Map;
 
 
 public class MapaActivity extends AppCompatActivity {
-    String camSD = "";
     WebView webview;
     Button btnAcMapa;
     FloatingActionButton floatingReturn;
@@ -89,31 +88,23 @@ public class MapaActivity extends AppCompatActivity {
 
 
     public void populateMap() {
+        String caminho;
+        String storagePath = System.getenv("SECONDARY_STORAGE");
+
+        if (storagePath == null) {
+            caminho = "Invalido";
+            Log.d("HORUSGEO_LOG", caminho);
+        } else {
+            String[] storagePathArray = storagePath.split(":");
+            caminho = storagePathArray[0];
+            Log.d("HORUSGEO_LOG", caminho);
+            caminho = caminho + "/www";
+        }
+
+        webview.loadUrl("JavaScript:loadImg('" + caminho + "')");
+
+        Log.d("HORUSGEO_LOG", caminho);
         
-        String removableStoragePath = "";
-        File fileList[] = new File("/storage/").listFiles();
-
-        for (File file : fileList) {
-            if (!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath()) && file.isDirectory() && file.canRead())
-                removableStoragePath = file.getAbsolutePath();
-            Log.d("HORUSGEO_LOG", String.valueOf(removableStoragePath));
-        }
-        Log.d("HORUSGEO_LOG", String.valueOf(fileList.length));
-        for (int i = 0; i < fileList.length; i++){
-            Log.d("HORUSGEO_LOG", String.valueOf(fileList[i]));
-            camSD = String.valueOf(fileList[6] + "/www");
-        }
-        Log.d("HORUSGEO_LOG", "---------------------------------------------------");
-
-
-
-        Log.d("HORUSGEO_LOG", camSD);
-        //webview.loadUrl("javascript:loadImg('/storage/E84C-FF83/www')"); // Certo mas passado na mao
-        //webview.loadUrl("javascript:loadImg('camSD')"); //Variavel possui o caminho salvo automaticamente --- Mas nao é assim q passa
-
-
-        webview.loadUrl("JavaScript:loadImg('"+camSD+"')");
-
     }
 }
 
