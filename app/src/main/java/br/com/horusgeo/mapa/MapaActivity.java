@@ -102,9 +102,9 @@ public class MapaActivity extends AppCompatActivity {
         }
 
         webview.loadUrl("JavaScript:loadImg('" + caminho + "')");
+        webview.loadUrl("JavaScript:loadKml()");
 
         Log.d("HORUSGEO_LOG", caminho);
-        
     }
 }
 
