@@ -87,31 +87,31 @@ function loadImg(imgPath){
 /* *********************** Load KML *********************** */
 
 function loadKml(){
-//    var runLayer1 = omnivore.kml('./kml/fd1.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer1.getBounds());
-//        }).addTo(myMap);
-//    var runLayer2 = omnivore.kml('./kml/fd2.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer.getBounds());
-//        }).addTo(myMap);
-//    var runLayer3 = omnivore.kml('./kml/fd3.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer.getBounds());
-//        }).addTo(myMap);
-//    var runLayer4 = omnivore.kml('./kml/fd4.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer.getBounds());
-//        }).addTo(myMap);
+    var runLayer1 = omnivore.kml('./kml/estacas01nb.kml')
+        .on('ready', function() {
+            myMap.fitBounds(runLayer1.getBounds());
+        }).addTo(myMap);
+    var runLayer2 = omnivore.kml('./kml/estacas01sa.kml')
+        .on('ready', function() {
+            myMap.fitBounds(runLayer.getBounds());
+        }).addTo(myMap);
+    var runLayer3 = omnivore.kml('./kml/estacas02nb.kml')
+        .on('ready', function() {
+            myMap.fitBounds(runLayer.getBounds());
+        }).addTo(myMap);
+    var runLayer4 = omnivore.kml('./kml/estacas02sa.kml')
+        .on('ready', function() {
+            myMap.fitBounds(runLayer.getBounds());
+        }).addTo(myMap);
 //    var runLayer5 = omnivore.kml('./kml/fd5.kml')
 //        .on('ready', function() {
 //            myMap.fitBounds(runLayer5.getBounds());
 //        }).addTo(myMap);
 
-    var runLayer = omnivore.kml('./kml/fd_final.kml')
-        .on('ready', function() {
-            myMap.fitBounds(runLayer.getBounds());
-        }).addTo(myMap);
+//    var runLayer = omnivore.kml('./kml/fd_final.kml')
+//        .on('ready', function() {
+//            myMap.fitBounds(runLayer.getBounds());
+//        }).addTo(myMap);
 
 //    var kmLayer = omnivore.kml('./kml/KM.kml')
 //        .on('ready', function() {
