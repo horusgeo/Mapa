@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,6 +24,10 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.EventListener;
 import java.util.Map;
 
@@ -88,23 +93,9 @@ public class MapaActivity extends AppCompatActivity {
 
 
     public void populateMap() {
-        String caminho;
-        String storagePath = System.getenv("SECONDARY_STORAGE");
-
-        if (storagePath == null) {
-            caminho = "Invalido";
-            Log.d("HORUSGEO_LOG", caminho);
-        } else {
-            String[] storagePathArray = storagePath.split(":");
-            caminho = storagePathArray[0];
-            Log.d("HORUSGEO_LOG", caminho);
-            caminho = caminho + "/www";
-        }
-
-        webview.loadUrl("JavaScript:loadImg('" + caminho + "')");
-        webview.loadUrl("JavaScript:loadKml()");
-
-        Log.d("HORUSGEO_LOG", caminho);
+        webview.loadUrl("javascript:loadImg('/storage/extSdCard/www')");
+        webview.loadUrl("javascript:loadImg('/storage/E84C-FF83/www')");
+        //webview.loadUrl("javascript:loadKml()");
     }
 }
 

@@ -87,41 +87,17 @@ function loadImg(imgPath){
 /* *********************** Load KML *********************** */
 
 function loadKml(){
-    var runLayer1 = omnivore.kml('./kml/estacas01nb.kml')
-        .on('ready', function() {
-            myMap.fitBounds(runLayer1.getBounds());
-        }).addTo(myMap);
-    var runLayer2 = omnivore.kml('./kml/estacas01sa.kml')
+
+//Teste para exibição
+    var runLayer = omnivore.kml('./kml/eixoseg2a.kml')
         .on('ready', function() {
             myMap.fitBounds(runLayer.getBounds());
-        }).addTo(myMap);
-    var runLayer3 = omnivore.kml('./kml/estacas02nb.kml')
-        .on('ready', function() {
-            myMap.fitBounds(runLayer.getBounds());
-        }).addTo(myMap);
-    var runLayer4 = omnivore.kml('./kml/estacas02sa.kml')
-        .on('ready', function() {
-            myMap.fitBounds(runLayer.getBounds());
-        }).addTo(myMap);
-//    var runLayer5 = omnivore.kml('./kml/fd5.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer5.getBounds());
-//        }).addTo(myMap);
+    }).addTo(myMap);
 
-//    var runLayer = omnivore.kml('./kml/fd_final.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer.getBounds());
-//        }).addTo(myMap);
-
-//    var kmLayer = omnivore.kml('./kml/KM.kml')
-//        .on('ready', function() {
-//            myMap.fitBounds(runLayer.getBounds());
-//    }).addTo(myMap);
-
-//    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-//        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-//        opacity: 0.2,
-//    }).addTo(myMap);
+    var runLayer1 = omnivore.kml('./kml/cercas.kml')
+           .on('ready', function() {
+               myMap.fitBounds(runLayer1.getBounds());
+    }).addTo(myMap);
 }
 
 /* *********************** Central Pin *********************** */
