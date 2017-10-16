@@ -2,8 +2,9 @@ myMap = L.map('mapDiv',{
                 minZoom: 9,
                 maxZoom: 21})
                 //.setView([-19.315, -43.636], 15);
-                .setView([-13.046034, -51.881561], 10);
-                
+                //.setView([-13.046034, -51.881561], 10);
+                .setView([-9.750274, -51.020470], 10);
+
 //myMap = L.map('mapDiv',{});
 
 
