@@ -11,8 +11,6 @@ import android.content.*;
 public class MainActivity extends AppCompatActivity {
     WebView webview;
     Button btnAcMapa;
-    FloatingActionButton floatingReturn;
-    FloatingActionButton floatingLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

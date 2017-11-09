@@ -34,9 +34,12 @@ import java.util.Map;
 
 public class MapaActivity extends AppCompatActivity {
     WebView webview;
-    Button btnAcMapa;
+
     FloatingActionButton floatingReturn;
     FloatingActionButton floatingLocation;
+    FloatingActionButton floatingRegua;
+    FloatingActionButton floatingPin;
+    FloatingActionButton floatingDesenho;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -89,6 +92,26 @@ public class MapaActivity extends AppCompatActivity {
                 webview.loadUrl("javascript:findLocation()");
             }
         });
+
+        floatingPin = (FloatingActionButton) findViewById(R.id.floatingPin);
+        floatingPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webview.loadUrl("javascript:startPin()");
+            }
+        });
+
+/*      floatingRegua = (FloatingActionButton) findViewById(R.id.floatingRegua);
+
+        floatingRegua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webview.loadUrl("javascript:clickPinRegua()");
+            }
+        });
+*/
+
+
     }
 
 
