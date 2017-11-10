@@ -38,6 +38,8 @@ public class MapaActivity extends AppCompatActivity {
     FloatingActionButton floatingReturn;
     FloatingActionButton floatingLocation;
     FloatingActionButton floatingRegua;
+    FloatingActionButton fabReguaNew;
+    FloatingActionButton fabReguaCancel;
     FloatingActionButton floatingPin;
     FloatingActionButton floatingDesenho;
 
@@ -59,6 +61,7 @@ public class MapaActivity extends AppCompatActivity {
         webSettings.setAllowFileAccess(true);
 
         webview.setWebViewClient(new WebViewClient() {
+
 
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -101,21 +104,58 @@ public class MapaActivity extends AppCompatActivity {
             }
         });
 
-/*      floatingRegua = (FloatingActionButton) findViewById(R.id.floatingRegua);
+        floatingRegua = (FloatingActionButton) findViewById(R.id.floatingRegua);
 
         floatingRegua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                floatingReturn.setVisibility(View.INVISIBLE);
+                floatingReturn.setClickable(false);
+
+                fabReguaNew.setVisibility(View.VISIBLE);
+                fabReguaNew.setClickable(true);
+
+                fabReguaCancel.setVisibility(View.VISIBLE);
+                fabReguaCancel.setClickable(true);
+                clickRegua(true);
+            }
+        });
+
+        fabReguaNew = (FloatingActionButton) findViewById(R.id.fabReguaNew);
+        fabReguaNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 webview.loadUrl("javascript:clickPinRegua()");
             }
         });
-*/
+
+
+        fabReguaCancel = (FloatingActionButton) findViewById(R.id.fabReguaCancel);
+        fabReguaCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clickRegua(false);
+            }
+        });
 
 
     }
 
+    private void clickRegua(Boolean which){
+        if(which)
+            webview.loadUrl("javascript:clickRegua()");
+        else
+            webview.loadUrl("javascript:closeRegua()");
+    }
 
     public void populateMap() {
+
+        fabReguaCancel.setVisibility(View.INVISIBLE);
+        fabReguaCancel.setClickable(false);
+//        fabReguaNew.setVisibility(View.INVISIBLE);
+//        fabReguaNew.setClickable(false);
+
         webview.loadUrl("javascript:loadImg('/storage/extSdCard/www')");
         webview.loadUrl("javascript:loadImg('/storage/E84C-FF83/www')");
         //webview.loadUrl("javascript:loadKml()");
