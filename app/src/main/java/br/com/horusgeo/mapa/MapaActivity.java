@@ -42,6 +42,9 @@ public class MapaActivity extends AppCompatActivity {
     FloatingActionButton fabReguaCancel;
     FloatingActionButton floatingPin;
     FloatingActionButton floatingDesenho;
+    FloatingActionButton fabPointsCancel;
+    FloatingActionButton fabPointsNew;
+    FloatingActionButton fabPointsOk;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
@@ -80,7 +83,6 @@ public class MapaActivity extends AppCompatActivity {
         webview.addJavascriptInterface(new WebAppInterface(this), "Android");
 
         floatingReturn = (FloatingActionButton) findViewById(R.id.floatingReturn);
-
         floatingReturn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(MapaActivity.this, MainActivity.class);
@@ -96,6 +98,9 @@ public class MapaActivity extends AppCompatActivity {
             }
         });
 
+        /* ----------------------------------------------------------------------------------*/
+        /* PIN*/
+
         floatingPin = (FloatingActionButton) findViewById(R.id.floatingPin);
         floatingPin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,8 +109,10 @@ public class MapaActivity extends AppCompatActivity {
             }
         });
 
-        floatingRegua = (FloatingActionButton) findViewById(R.id.floatingRegua);
+        /* ----------------------------------------------------------------------------------*/
+        /* REGUA*/
 
+        floatingRegua = (FloatingActionButton) findViewById(R.id.floatingRegua);
         floatingRegua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,12 +141,72 @@ public class MapaActivity extends AppCompatActivity {
         fabReguaCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                floatingReturn.setVisibility(View.VISIBLE);
+                floatingReturn.setClickable(false);
+                fabReguaNew.setVisibility(View.INVISIBLE);
+                fabReguaNew.setClickable(false);
+                floatingReturn.setVisibility(View.VISIBLE);
+                floatingReturn.setClickable(true);
+                fabReguaCancel.setVisibility(View.INVISIBLE);
+                fabReguaCancel.setClickable(false);
                 clickRegua(false);
             }
         });
 
+        /* ----------------------------------------------------------------------------------*/
+        /*Pontos Propriedade*/
+        floatingDesenho = (FloatingActionButton) findViewById(R.id.floatingDesenho);
+        floatingDesenho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                floatingReturn.setVisibility(View.INVISIBLE);
+                floatingReturn.setClickable(false);
+                floatingDesenho.setVisibility(View.INVISIBLE);
+                floatingDesenho.setClickable(false);
+                floatingRegua.setVisibility(View.INVISIBLE);
+                floatingRegua.setClickable(false);
+                floatingPin.setVisibility(View.INVISIBLE);
+                floatingPin.setClickable(false);
+
+
+
+                fabPointsNew.setVisibility(View.VISIBLE);
+                fabPointsNew.setClickable(true);
+
+                fabPointsCancel.setVisibility(View.VISIBLE);
+                fabPointsCancel.setClickable(true);
+
+                fabPointsOk.setVisibility(View.VISIBLE);
+                fabPointsOk.setClickable(true);
+
+            }
+        });
+
+        fabPointsOk = (FloatingActionButton) findViewById(R.id.fabPointsOk);
+        fabPointsOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        fabPointsCancel = (FloatingActionButton) findViewById(R.id.fabPointsCancel);
+        fabPointsCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+        fabPointsNew = (FloatingActionButton)findViewById((R.id.fabPointsNew));
+        fabPointsNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webview.loadUrl("javascript:clickPoints()");
+
+            }
+        });
     }
 
     private void clickRegua(Boolean which){
@@ -153,8 +220,12 @@ public class MapaActivity extends AppCompatActivity {
 
         fabReguaCancel.setVisibility(View.INVISIBLE);
         fabReguaCancel.setClickable(false);
-//        fabReguaNew.setVisibility(View.INVISIBLE);
-//        fabReguaNew.setClickable(false);
+        fabPointsCancel.setVisibility(View.INVISIBLE);
+        fabPointsCancel.setClickable(false);
+        fabPointsNew.setVisibility(View.INVISIBLE);
+        fabPointsNew.setClickable(false);
+        fabPointsOk.setVisibility(View.INVISIBLE);
+        fabPointsOk.setClickable(false);
 
         webview.loadUrl("javascript:loadImg('/storage/extSdCard/www')");
         webview.loadUrl("javascript:loadImg('/storage/E84C-FF83/www')");
